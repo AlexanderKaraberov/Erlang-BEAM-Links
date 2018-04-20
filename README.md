@@ -4,16 +4,17 @@
 
 1. Not specifically related but I guess official Erlang Efficiency Guide is the most important piece of information:
 http://erlang.org/doc/efficiency_guide/introduction.html
-Implementation-specific details of how much memory native Erlang data types occupy from the same guide:
+
+2. Implementation-specific details of how much memory native Erlang data types occupy from the same guide:
 http://erlang.org/doc/efficiency_guide/advanced.html#id71365
 
-2. Evolution of the Erlang VM presentation:
+3. Evolution of the Erlang VM presentation:
 http://www.erlang-factory.com/upload/presentations/247/erlang_vm_1.pdf
 
-3. How Erlang does scheduling
+4. How Erlang does scheduling
 http://jlouisramblings.blogspot.ch/2013/01/how-erlang-does-scheduling.html
 
-4. A History of Erlang by Joe Armstrong
+5. A History of Erlang by Joe Armstrong
 http://webcem01.cem.itesm.mx:8005/erlang/cd/downloads/hopl_erlang.pdf
 Nice article by one of the original creators describing the evoultion of Erlang.
 
