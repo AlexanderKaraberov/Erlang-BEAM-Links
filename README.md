@@ -8,11 +8,11 @@ Links to blog posts, specifications and other documentation about the Erlang/BEA
 
 http://erlang.org/doc/efficiency_guide/introduction.html
 
-2. Implementation-specific details of how much memory native Erlang data types occupy from the same guide:
+2. Implementation-specific details of how much memory native Erlang data types occupy:
 
 http://erlang.org/doc/efficiency_guide/advanced.html#id71365
 
-3. Evolution of the Erlang VM presentation:
+3. Evolution of the Erlang VM:
 
 http://www.erlang-factory.com/upload/presentations/247/erlang_vm_1.pdf
 
