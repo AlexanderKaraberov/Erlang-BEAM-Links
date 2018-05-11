@@ -120,4 +120,24 @@ You might be particularly interested in the `static int transform_engine(LoaderS
 16. Internal doc in the erts/emulator is a treasure trove of the underlying implementation details:
 https://github.com/erlang/otp/tree/master/erts/emulator/internal_doc
 
+17. Will put reference to the Erlang garbage collection doc as a separate link:
+https://github.com/erlang/otp/blob/master/erts/emulator/internal_doc/GarbageCollection.md
+
+## BEAM internal code references
+
+1. In the context of Erlang garbage collection it is very important I believe to put a link to the GC implementation itself:
+https://github.com/erlang/otp/blob/0183ddffb112d898d9b8c0396afa7f2210b9e169/erts/emulator/beam/erl_gc.c#L665
+
+2. `erl_create_process` function:
+https://github.com/erlang/otp/blob/d423a7af502227afcdcf7d2a1efecded85ea95fb/erts/emulator/beam/erl_process.c#L11724
+Be prepared to wait a liitle bit because erl_process file has almost 13500 lines of C code. This is a cornerstone of the whole Erlang platform I think.
+
+3. We always use BIFs in Erlang such like `element` or `spawn_link`. `gen` and `gen_server` are based on `erlang:spawn` hence I think it's inportant to know how BIFs are actually implemented.
+https://github.com/erlang/otp/blob/7a19de1bf0eb863e0d0febf7e7e5e555c8628575/lib/stdlib/src/erl_internal.erl#L61
+`stdlib/erl_internal` is just a BIF-proxy because all the functions are implemented natively in C inside the ERTS/BEAM. But still it's useul to see a full list of allowed in guards BIFs and other ones.
+But the core C implementation resides here:
+https://github.com/erlang/otp/blob/7a19de1bf0eb863e0d0febf7e7e5e555c8628575/erts/emulator/beam/bif.c#L69
+And this is also I think one of the most important parts of the Erlang.
+
+
 P.S. New links will be added in future if i spot something interesting and relevant.
