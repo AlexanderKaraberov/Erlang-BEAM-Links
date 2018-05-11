@@ -117,5 +117,7 @@ https://github.com/erlang/otp/blob/master/erts/emulator/beam/beam_load.c
 
 You might be particularly interested in the `static int transform_engine(LoaderState* st)` function.
 
+16. Internal doc in the erts/emulator is a treasure trove of the underlying implementation details:
+https://github.com/erlang/otp/tree/master/erts/emulator/internal_doc
 
 P.S. New links will be added in future if i spot something interesting and relevant.
