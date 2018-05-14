@@ -142,5 +142,11 @@ https://github.com/erlang/otp/blob/7a19de1bf0eb863e0d0febf7e7e5e555c8628575/erts
 
 And this is also I think one of the most important parts of the Erlang.
 
+4. The most important parts from the code of the Erlang code purger. Vital part of the ERTS as well.
+
+https://github.com/erlang/otp/blob/1526eaead833b3bdcd3555a12e2af62c359e7868/erts/preloaded/src/erts_code_purger.erl#L61
+
+^ `pending_purge_lambda`, `purge`, `soft_purge`, `check_proc_code` are the functions you might be particularly interested in.
+Comments contain very important piece of information.
 
 P.S. New links will be added in future if i spot something interesting and relevant.
