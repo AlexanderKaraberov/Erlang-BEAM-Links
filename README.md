@@ -149,4 +149,17 @@ https://github.com/erlang/otp/blob/1526eaead833b3bdcd3555a12e2af62c359e7868/erts
 ^ `pending_purge_lambda`, `purge`, `soft_purge`, `check_proc_code` are the functions you might be particularly interested in.
 Comments contain very important piece of information.
 
+5. Erlang lists:
+
+https://github.com/erlang/otp/blob/master/lib/stdlib/src/lists.erl#L20
+
+Most of the `lists` moudle functionality is incapsulated here ^. At first you will see some of the functions like `keyfind/3`, `keymember/3`, etc. which are implemented as BIFs and defined in a separate C file inside of BEAM:
+
+https://github.com/erlang/otp/blob/1526eaead833b3bdcd3555a12e2af62c359e7868/erts/emulator/beam/erl_bif_lists.c#L21
+
+
+6. Core native functionality of the Erlang message passing:
+
+https://github.com/erlang/otp/blob/1526eaead833b3bdcd3555a12e2af62c359e7868/erts/emulator/beam/erl_message.c#L48
+
 P.S. New links will be added in future if i spot something interesting and relevant.
