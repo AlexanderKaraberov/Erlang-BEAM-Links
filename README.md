@@ -123,6 +123,22 @@ https://github.com/erlang/otp/tree/master/erts/emulator/internal_doc
 17. Will put reference to the Erlang garbage collection doc as a separate link:
 https://github.com/erlang/otp/blob/master/erts/emulator/internal_doc/GarbageCollection.md
 
+
+## Optimisations and monitoring
+
+1. Internal OTP doc which contains useful insights regaring the process managements, lock and run queues:
+https://github.com/erlang/otp/blob/master/erts/emulator/internal_doc/ProcessManagementOptimizations.md
+
+2. Rickard Green's insights into the compaction of load mode  of erlang schedulers load distibution:
+(taken from this email thread)
+http://erlang.org/pipermail/erlang-questions/2012-October/069585.html
+
+The runtime system tries to compact the load on as few schedulers as possible without getting run-queues that build up. The runtime system wont wake up new schedulers unless some overload has accumulated. This overload either show up as a quickly growing run-queue or a small run-queue over a longer time. The +swt flags sets the threshold that is used for determining when enough overload has accumulated to wake up another scheduler. This compaction of load onto fewer schedulers is there in order to reduce communication overhead when there aren't enough work to fully utilize all schedulers. The performance gain of this compaction depends on the hardware. We have gotten reports about problems with this functionality, but we have not found any bugs in this functionality. We have only found that it behaves as expected. That is, if more schedulers aren't woken this is 
+due to not enough accumulated overload. The +swt switch was introduced in order to give the user the possibility do define what is enough overload for his or her taste. The currently used wakeup strategy is very quick to forget about previously accumulated overload that has disappeared. Maybe even too quick for my taste when "+swt very_low" is used. I've therefore  implemented an alternative strategy that most likely will be the default in R16. As of R15B02 you can try this strategy out by passing "+sws proposal" as a command line argument. In combination with "+swt very_low", the runtime system should be even more eager to wake up schedulers than when only using "+swt very_low".
+ 
+ 3. Very
+
+
 ## BEAM internal code references
 
 1. In the context of Erlang garbage collection it is very important I believe to put a link to the GC implementation itself:
@@ -161,5 +177,8 @@ https://github.com/erlang/otp/blob/1526eaead833b3bdcd3555a12e2af62c359e7868/erts
 6. Core native functionality of the Erlang message passing:
 
 https://github.com/erlang/otp/blob/1526eaead833b3bdcd3555a12e2af62c359e7868/erts/emulator/beam/erl_message.c#L48
+
+7. Internal BEAM emulator docs:
+https://github.com/erlang/otp/tree/master/erts/emulator/internal_doc
 
 P.S. New links will be added in future if i spot something interesting and relevant.
