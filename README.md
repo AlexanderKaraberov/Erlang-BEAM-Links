@@ -2,29 +2,6 @@
 
 Links to blog posts, specifications and other documentation about the Erlang/BEAM internals which I've gleaned recently.
 
-## General
-
-1. Erlang Efficiency Guide. Not specifically related but nevertheless is a very important piece of information I believe:
-
-http://erlang.org/doc/efficiency_guide/introduction.html
-
-2. Implementation-specific details of how much memory native Erlang data types occupy:
-
-http://erlang.org/doc/efficiency_guide/advanced.html#id71365
-
-3. Evolution of the Erlang VM:
-
-http://www.erlang-factory.com/upload/presentations/247/erlang_vm_1.pdf
-
-4. How Erlang does scheduling:
-
-http://jlouisramblings.blogspot.ch/2013/01/how-erlang-does-scheduling.html
-
-5. A History of Erlang by Joe Armstrong
-
-http://webcem01.cem.itesm.mx:8005/erlang/cd/downloads/hopl_erlang.pdf
-
-Nice article by one of the original creators describing the evolution of Erlang.
 
 ## BEAM (Bogdan/Björn's Erlang Abstract Machine) and ERTS (Erlang RunTime System):
 
