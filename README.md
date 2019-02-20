@@ -1,6 +1,6 @@
 # Erlang-Internals-Info
 
-Links to blog posts, specifications and other documentation about the Erlang/BEAM internals which I've gleaned recently.
+Links to blog posts, specifications and other documentation about the Erlang/BEAM internals which I've gleaned recently. Perhaps in future I'll produce several detailed blog posts based on all this information.
 
 
 ## BEAM (Bogdan/Björn's Erlang Abstract Machine) and ERTS (Erlang RunTime System):
@@ -110,7 +110,19 @@ https://github.com/erlang/otp/blob/master/erts/emulator/internal_doc/ProcessMana
 
 > The runtime system tries to compact the load on as few schedulers as possible without getting run-queues that build up. The runtime system wont wake up new schedulers unless some overload has accumulated. This overload either show up as a quickly growing run-queue or a small run-queue over a longer time. The +swt flags sets the threshold that is used for determining when enough overload has accumulated to wake up another scheduler. This compaction of load onto fewer schedulers is there in order to reduce communication overhead when there aren't enough work to fully utilize all schedulers. The performance gain of this compaction depends on the hardware. We have gotten reports about problems with this functionality, but we have not found any bugs in this functionality. We have only found that it behaves as expected. That is, if more schedulers aren't woken this is 
 due to not enough accumulated overload. The +swt switch was introduced in order to give the user the possibility do define what is enough overload for his or her taste. The currently used wakeup strategy is very quick to forget about previously accumulated overload that has disappeared. Maybe even too quick for my taste when "+swt very_low" is used. I've therefore  implemented an alternative strategy that most likely will be the default in R16. As of R15B02 you can try this strategy out by passing "+sws proposal" as a command line argument. In combination with "+swt very_low", the runtime system should be even more eager to wake up schedulers than when only using "+swt very_low".
- 
+
+## ETS Table
+
+When access an ETS table, there are wo locks that need to be taken:
+1) A lock to access the meta table, to convert the numeric table identifier to a pointer to the actual table.
+2) The lock for the table itself (either a read or write lock).
+read and write_concurrency
+http://erlang.org/doc/man/ets.html#new_2_write_concurrency
+The default locking is on table-level, allowing only one update operation at a time per table. Table option write_concurrency will enable locking on a more fine grained level, allowing concurrent update operations. In current implementation 16 locks per table is used, which result in a probability of 1/16 that two random keys will collide on the same lock. Option write_concurrency have no effect on ordered_set's.
+ETS Scalability paper:
+http://winsh.me/papers/erlang_workshop_2013.pdf
+ETS meta table source code:
+https://github.com/erlang/otp/blob/master/erts/emulator/beam/erl_db.c#L324
 
 ## BEAM internal code references
 
