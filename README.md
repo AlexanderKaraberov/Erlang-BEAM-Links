@@ -126,44 +126,5 @@ https://github.com/erlang/otp/blob/master/erts/emulator/beam/erl_db.c#L324
 
 ## BEAM internal code references
 
-1. In the context of Erlang garbage collection it is very important I believe to put a link to the GC implementation itself:
-https://github.com/erlang/otp/blob/0183ddffb112d898d9b8c0396afa7f2210b9e169/erts/emulator/beam/erl_gc.c#L665
-
-2. `erl_create_process` function:
-https://github.com/erlang/otp/blob/d423a7af502227afcdcf7d2a1efecded85ea95fb/erts/emulator/beam/erl_process.c#L11724
-
-Be prepared to wait a liitle bit because `erl_process.c` file has almost 13500 lines of C code. This is a cornerstone of the whole Erlang platform I think.
-
-3. We always use BIFs in Erlang such as `element` or `spawn_link` or whatnot in our code. `gen` and `gen_server` are based on `erlang:spawn` BIF, hence I think it's inportant to know how BIFs are actually implemented.
-https://github.com/erlang/otp/blob/7a19de1bf0eb863e0d0febf7e7e5e555c8628575/lib/stdlib/src/erl_internal.erl#L61
-
-`stdlib/erl_internal` here is just a BIF-proxy because all the functions are implemented natively in C inside the ERTS/BEAM. But still it's useul to see a full list of allowed in guards BIFs and other ones.
-And the core C implementation resides here:
-https://github.com/erlang/otp/blob/7a19de1bf0eb863e0d0febf7e7e5e555c8628575/erts/emulator/beam/bif.c#L69
-
-And this is also I think one of the most important parts of the Erlang.
-
-4. The most important parts from the code of the Erlang code purger. Vital part of the ERTS as well.
-
-https://github.com/erlang/otp/blob/1526eaead833b3bdcd3555a12e2af62c359e7868/erts/preloaded/src/erts_code_purger.erl#L61
-
-^ `pending_purge_lambda`, `purge`, `soft_purge`, `check_proc_code` are the functions you might be particularly interested in.
-Comments contain very important piece of information.
-
-5. Erlang lists:
-
-https://github.com/erlang/otp/blob/master/lib/stdlib/src/lists.erl#L20
-
-Most of the `lists` moudle functionality is incapsulated here ^. At first you will see some of the functions like `keyfind/3`, `keymember/3`, etc. which are implemented as BIFs and defined in a separate C file inside of BEAM:
-
-https://github.com/erlang/otp/blob/1526eaead833b3bdcd3555a12e2af62c359e7868/erts/emulator/beam/erl_bif_lists.c#L21
-
-
-6. Core native functionality of the Erlang message passing:
-
-https://github.com/erlang/otp/blob/1526eaead833b3bdcd3555a12e2af62c359e7868/erts/emulator/beam/erl_message.c#L48
-
-7. Internal BEAM emulator docs:
-https://github.com/erlang/otp/tree/master/erts/emulator/internal_doc
 
 P.S. New links will be added in future if i spot something interesting and relevant.
