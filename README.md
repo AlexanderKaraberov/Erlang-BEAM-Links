@@ -124,7 +124,8 @@ http://winsh.me/papers/erlang_workshop_2013.pdf
 ETS meta table source code:
 https://github.com/erlang/otp/blob/master/erts/emulator/beam/erl_db.c#L324
 
-## BEAM internal code references
+
+[BEAM internal code references](https://github.com/AlexanderKaraberov/Erlang-BEAM-Links/blob/master/BEAM_CODE_REFERENCES.md)
 
 
 P.S. New links will be added in future if i spot something interesting and relevant.
