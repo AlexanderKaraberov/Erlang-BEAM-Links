@@ -101,6 +101,20 @@ https://github.com/erlang/otp/tree/master/erts/emulator/internal_doc
 https://github.com/erlang/otp/blob/master/erts/emulator/internal_doc/GarbageCollection.md
 
 
+18. Reductions
+
+Current max reductions is [4000](https://github.com/erlang/otp/blob/OTP-21.3.8.11/erts/emulator/beam/erl_vm.h#L39).
+
+Information regarding reduction from the [BeamBook](https://github.com/happi/theBeamBook/blob/master/chapters/scheduling.asciidoc#reductions).
+
+What counts as a VM reduction:
+
+As per Erlang VM maintainer [Lukas Larsson's comment](https://stackoverflow.com/a/31805391/1744056):
+
+```
+As a general rule of thumb; a function call (not the return) or anything that may take an unknown amount of time counts reductions. This includes bifs, nifs, gc, sending/receiving messages and probably more that I cannot think of right now.
+```
+
 ## Optimisations and monitoring
 
 1. Internal OTP doc which contains useful insights regaring the process managements, lock and run queues:
